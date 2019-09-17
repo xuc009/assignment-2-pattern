@@ -1,0 +1,56 @@
+html{
+	background-color: blue;
+}
+
+.stripe{
+	display: inline-block;
+	height: 15px;
+	width: 100vw;
+	margin-right: 5px;
+	margin-bottom: 20px;
+	background-color: white;
+	animation: rotation 40s infinite linear;
+	border-radius: 50%;
+
+}
+
+.module{
+	position: relative;
+	width: 100vw;
+	height: 50px;
+	animation: rotation 60s infinite linear;
+	border-radius: 50%;
+
+}
+
+.module_child{
+	position: absolute;
+	top:0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin-top:auto;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:auto;
+	width: 40vw;
+	height:40px;
+	color: white;
+	text-align: center;
+	line-height: 40px;
+	animation: rotation 20s infinite linear;
+	border-radius: 50%;
+	border-color: black;
+	border-width: 3px;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+
+
+}
