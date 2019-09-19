@@ -1,15 +1,44 @@
 html{
-	background-color: blue;
+	background-color: white;
 }
 
 .stripe{
 	display: inline-block;
 	height: 15px;
-	width: 100vw;
+	width: 100%;
 	margin-right: 5px;
 	margin-bottom: 20px;
 	background-color: white;
-	animation: rotation 40s infinite linear;
+	border-radius: 50%;
+
+}
+
+.horizontalstripe{
+	height: 30px;
+	width: 100vw;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	border-radius: 50%;
+}
+.horizontalstripe_odd{
+	position: absolute;
+	height: 30px;
+	width: 50%;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	border-radius: 50%;
+	animation: horizontalmove_left 20s infinite linear, rotation 30s infinite linear;
+
+}
+
+.horizontalstripe_even{
+	position: absolute;
+	height: 30px;
+	width: 40%;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	/* background-color: black; */
+	animation: horizontalmove_right 20s infinite linear, rotation 30s infinite linear;
 	border-radius: 50%;
 
 }
@@ -18,7 +47,9 @@ html{
 	position: relative;
 	width: 100vw;
 	height: 50px;
+	margin-bottom: -10vh;
 	animation: rotation 60s infinite linear;
+	transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
 	border-radius: 50%;
 
 }
@@ -32,8 +63,8 @@ html{
 	margin-top:auto;
 	margin-left:auto;
 	margin-right:auto;
-	margin-bottom:auto;
-	width: 40vw;
+	margin-bottom:50px;
+	width: 100vw;
 	height:40px;
 	color: white;
 	text-align: center;
@@ -51,6 +82,16 @@ html{
   to {
     transform: rotate(359deg);
   }
+}
 
+@keyframes horizontalmove_right {
+	0%   {left: 0%;}
+  33%  {left:100%;}
+  100%  {left:0%;}
+}
 
+@keyframes horizontalmove_left {
+	0%   {left: 100%;}
+	33%  {left:0%;}
+	100%  {left:100%;}
 }

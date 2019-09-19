@@ -19,35 +19,69 @@
 	for (var i = 0; i <200; i++) {
 		var changingColor = i;
 
-			changingColor += 10; //aka changingColor = changingColor +10
-			if (i%2 ===0){
-				//even
-			changingColor += 20
-			} else {
-				//odd
-				changingColor -= 40
-			}
+			// changingColor += 10; //aka changingColor = changingColor +10
+			// if (i%2 ===0){
+			// 	//even
+			// changingColor += 20
+			// } else {
+			// 	//odd
+			// 	changingColor -= 40
+			// }
 
 		var myModule = `
 		<div class="module"
-		style="background-color:rgb(${changingColor},0,0);">
+		style="background-color:black">
 			<div class="module_child"
-			style="background-color:rgb(${255 - i},${255 * (i/5)},${i});
-			transform: rotate(${i};
+			style="background-color:rgb(${250-i%100},${250-i%100},0);
+			transform: rotate(${i});
+			height:${i/3}px;
 			"></div
 		</div>
 		`;
 
-		myWrapper.insertAdjacentHTML('afterbegin',myModule);
+		myWrapper.insertAdjacentHTML('beforebegin',myModule);
 
 
 		var stripe = `
 			<div class="stripe"
-			style="transform: rotate(${i+10}deg);"
+			style="transform: rotate(${i+10}deg);
+			height:${i/2}px;"
 			>
 			</div>
 		`;
 
-		myWrapper.insertAdjacentHTML('afterbegin',stripe);
+		myWrapper.insertAdjacentHTML('beforebegin',stripe);
+
+		var horizontalstripe_even = `
+			<div class="horizontalstripe_even"
+			style="background-color:red;"
+			>
+			</div>
+		`;
+
+		var horizontalstripe_odd = `
+			<div class="horizontalstripe_odd"
+			style="background-color:blue;"
+			>
+			</div>
+		`;
+
+		var horizontalstripe = i;
+
+			if (i%2 ===0){
+				myWrapper.insertAdjacentHTML('beforebegin',horizontalstripe_even);
+			} else {
+				myWrapper.insertAdjacentHTML('beforebegin',horizontalstripe_odd);
+			}
+
+			var horizontalstripe= `
+				<div class="horizontalstripe"
+				style="background-color:black;"
+				>
+				</div>
+			`;
+
+			myWrapper.insertAdjacentHTML('beforebegin',horizontalstripe);
+
 
 }
