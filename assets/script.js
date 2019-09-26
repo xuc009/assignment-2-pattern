@@ -16,7 +16,7 @@
 
 
 
-	for (var i = 0; i <200; i++) {
+	for (var i = 0; i <100; i++) {
 		var changingColor = i;
 
 			// changingColor += 10; //aka changingColor = changingColor +10
@@ -45,7 +45,7 @@
 		var stripe = `
 			<div class="stripe"
 			style="transform: rotate(${i+10}deg);
-			height:${i/2}px;"
+			height:${i/3}px;"
 			>
 			</div>
 		`;
