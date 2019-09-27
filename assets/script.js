@@ -5,6 +5,7 @@
 	// example 2 outputs in our html document
 	// the line below searches our HTML document for our element by its id
 	var myWrapper = document.getElementById("wrapper");
+	var otherWrapper = document.getElementById("otherWrapper");
 
 	// for (var i = 0; i < 50; i++) {
 	// 	// the for loop runs 50 times, so it adds the div below 50 times
@@ -16,17 +17,7 @@
 
 
 
-	for (var i = 0; i <100; i++) {
-		var changingColor = i;
-
-			// changingColor += 10; //aka changingColor = changingColor +10
-			// if (i%2 ===0){
-			// 	//even
-			// changingColor += 20
-			// } else {
-			// 	//odd
-			// 	changingColor -= 40
-			// }
+	for (var i = 0; i <200; i++) {
 
 		var myModule = `
 		<div class="module"
@@ -34,7 +25,7 @@
 			<div class="module_child"
 			style="background-color:rgb(${250-i%100},${250-i%100},0);
 			transform: rotate(${i});
-			height:${i/3}px;
+			height:2px;
 			"></div
 		</div>
 		`;
@@ -45,7 +36,7 @@
 		var stripe = `
 			<div class="stripe"
 			style="transform: rotate(${i+10}deg);
-			height:${i/3}px;"
+			height:${(i+40)/30}px;"
 			>
 			</div>
 		`;
@@ -74,14 +65,62 @@
 				myWrapper.insertAdjacentHTML('beforebegin',horizontalstripe_odd);
 			}
 
-			var horizontalstripe= `
-				<div class="horizontalstripe"
-				style="background-color:black;"
-				>
-				</div>
-			`;
+			if (i <= 100){
+				var horizontalstripe= `
+					<div class="horizontalstripe"
+					style="background-color:rgb(${0+(i*2.5)},${0+(i*2.5)},${0+(i*2.5)});"
+					>
+					</div>
+				`;
+			}else if(i<=200){
+				var horizontalstripe= `
+					<div class="horizontalstripe"
+					style="background-color:rgb(${250-i%100},${250-i%100},0);"
+					>
+					</div>
+				`;
+			}else{
+				var horizontalstripe= `
+					<div class="horizontalstripe"
+					style="background-color:rgb(${0+(i)},${0+(i*55/255)},${0+(i*55/255)});"
+					>
+					</div>
+				`;
+			}
 
 			myWrapper.insertAdjacentHTML('beforebegin',horizontalstripe);
-
-
 }
+var j =0;
+
+
+var delayedEvenstripe = function(j){
+	var changingR = 0;
+	var changingG = 0;
+	var changingB = 0;
+
+	if(j<=10){
+		var changingR = 255-(j*20);
+	}else {
+		var changingG = 10+(j*10);
+	}
+
+	var changingY = j*100;
+	var horizontalstripe_delayed = `
+		<div class="horizontalstripe_delayed"
+		style="background-color:rgb(${changingR},${changingG},${changingB});
+		top:${changingY}px;
+		">
+		</div>
+	`;
+
+
+otherWrapper.insertAdjacentHTML('afterend',horizontalstripe_delayed);
+};
+
+var timeout = function(){
+	for (var j = 0; j < 20; j++) {
+		setTimeout(delayedEvenstripe, j*10000, j)
+	};
+}
+
+setTimeout(timeout,5000);

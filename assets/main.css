@@ -4,17 +4,17 @@ html{
 
 .stripe{
 	display: inline-block;
-	height: 15px;
+	height: 8px;
 	width: 100%;
 	margin-right: 5px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	background-color: white;
 	border-radius: 50%;
 
 }
 
 .horizontalstripe{
-	height: 30px;
+	height: 16px;
 	width: 100vw;
 	margin-right: 5px;
 	margin-bottom: 5px;
@@ -22,10 +22,10 @@ html{
 }
 .horizontalstripe_odd{
 	position: absolute;
-	height: 30px;
-	width: 50%;
+	height: 16px;
+	width: 27vw;
 	margin-right: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 4px;
 	border-radius: 50%;
 	animation: horizontalmove_left 20s infinite linear, rotation 30s infinite linear;
 
@@ -33,23 +33,36 @@ html{
 
 .horizontalstripe_even{
 	position: absolute;
-	height: 30px;
-	width: 40%;
+	height: 16px;
+	width: 27vw;
 	margin-right: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 4px;
 	/* background-color: black; */
-	animation: horizontalmove_right 20s infinite linear, rotation 30s infinite linear;
+	animation: horizontalmove_right 30s infinite linear, rotation 40s infinite linear;
 	border-radius: 50%;
+	animation-timing-function: cubic-bezier(.48,.73,.03,.74);
 
+
+}
+
+.horizontalstripe_delayed{
+	position: absolute;
+	height: 8vw;
+	width: 8vw;
+	margin-right: 5px;
+	margin-bottom: 100px;
+	animation: horizontalmove_left 50s infinite linear, rotation 30s infinite linear;
+	border-radius: 50%;
+	animation-timing-function: cubic-bezier(.43,.84,.61,.14);
 }
 
 .module{
 	position: relative;
 	width: 100vw;
-	height: 50px;
-	margin-bottom: -10vh;
+	height: 27px;
+	margin-bottom: -7vh;
 	animation: rotation 60s infinite linear;
-	transition-timing-function: cubic-bezier(7, 0.7, 1.0, 0.1);
+	animation-timing-function: cubic-bezier(.43,.84,.61,.14);
 	border-radius: 50%;
 
 }
@@ -65,7 +78,7 @@ html{
 	margin-right:auto;
 	margin-bottom:50px;
 	width: 100vw;
-	height:40px;
+	height:1px;
 	color: white;
 	text-align: center;
 	line-height: 40px;
