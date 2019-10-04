@@ -37,7 +37,7 @@ html{
 	width: 27vw;
 	margin-right: 5px;
 	margin-bottom: 4px;
-	background-color: rgb(255,0,0);
+	/* background-color: black; */
 	animation: horizontalmove_right 30s infinite linear, rotation 40s infinite linear;
 	border-radius: 50%;
 	animation-timing-function: cubic-bezier(.48,.73,.03,.74);
@@ -48,14 +48,13 @@ html{
 .horizontalstripe_delayed{
 	position: absolute;
 	left:10px;
-	top:5px;
 	height: 8vw;
 	width: 8vw;
 	margin-right: 5px;
 	margin-bottom: 100px;
-	animation: horizontalmove_left 50s infinite linear, rotation 30s infinite linear;
+	/* animation: horizontalmove_left 50s infinite linear, rotation 30s infinite linear; */
 	border-radius: 50%;
-	animation-timing-function: cubic-bezier(.43,.84,.61,.14);
+	/* animation-timing-function: cubic-bezier(.43,.84,.61,.14); */
 }
 
 .module{

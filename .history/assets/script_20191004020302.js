@@ -4,7 +4,7 @@
 
 
 
-	for (var i = 0; i <150; i++) {
+	for (var i = 0; i <200; i++) {
 
 		var myModule = `
 		<div class="module"
@@ -118,8 +118,6 @@ var stripeColorChange = function(){
 	var body = document.querySelector("body");
 	var object = document.getElementsByClassName("horizontalstripe_even");
 	var otherObject = document.getElementsByClassName("horizontalstripe_odd");
-	var lastObject = document.getElementsByClassName("module_child");
-
 
 	console.log(object)
 	// console.log("window.scrollY", window.scrollY)
@@ -129,24 +127,22 @@ var stripeColorChange = function(){
 	var heightOfBrowser = window.innerHeight;
 
 	var percentageX = event.pageX/widthOfBrowser;
-	var red = 0 + (255 * (percentageX));
+	var red = 100 + (155 * (percentageX));
 	var percentageY = event.pageY/heightOfBrowser;
-	var blue = 100 + (255 * (percentageY));
-	var green = 0 + (100 * (percentageY));
-	var otherGreen = 150 + (100 * (percentageY));
-
+	var blue = 100 + (155 * (percentageY));
 	console.log('red:', red);
 	console.log('blue:', blue);
 
+	var percentageScrolled = (window.scrollY + window.innerHeight)/body.offsetHeight;
+
+	if(percentageScrolled >= .95 ){
+		window.scrollTo(0,0)
+	}
 	for (k=0; k<object.length; k++){
 		object[k].style.backgroundColor = `rgb(${red},0,0)`;
-		otherObject[k].style.backgroundColor = `rgb(0,${green},${blue})`;
-	}
-	
-	for (k=0; k<lastObject.length; k++){
-		lastObject[k].style.backgroundColor = `rgb(255,${otherGreen},0)`;
-	}
+		otherObject[k].style.backgroundColor = `rgb(0,0,${blue})`;
 
+	}
 	
 	console.log(object.style.backgroundColor);
 
@@ -157,7 +153,6 @@ window.addEventListener("mousemove", stripeColorChange)
 
 
 var scrolling = function(){
-	var body = document.querySelector("body");
 	var backgroundStripe = document.getElementsByClassName("horizontalstripe");
 	// console.log("window.scrollY", window.scrollY)
 	// console.log("window.innerHeight", window.innerHeight)
@@ -165,15 +160,18 @@ var scrolling = function(){
 
 	var percentageScrolled = (window.scrollY + window.innerHeight)/body.offsetHeight;
 	console.log(percentageScrolled)
-	var color = Math.round(percentageScrolled * 200);
+	var color = 
 
 	if(percentageScrolled >= .95 ){
 		window.scrollTo(0,0)
 	}
 
-	for (c=0; c<backgroundStripe.length; c++){
-		backgroundStripe[c].style.backgroundColor = `rgb(${color},${color},${color})`;
+	for (k=0; k<object.length; k++){
+		object[k].style.backgroundColor = `rgb(${red},0,0)`;
+		otherObject[k].style.backgroundColor = `rgb(0,0,${blue})`;
+
 	}
+	rgb(${0+(i*2.5)},${0+(i*2.5)},${0+(i*2.5)})
 }
 
 

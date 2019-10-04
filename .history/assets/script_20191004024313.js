@@ -4,7 +4,7 @@
 
 
 
-	for (var i = 0; i <150; i++) {
+	for (var i = 0; i <100; i++) {
 
 		var myModule = `
 		<div class="module"

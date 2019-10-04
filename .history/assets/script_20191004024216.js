@@ -4,7 +4,7 @@
 
 
 
-	for (var i = 0; i <150; i++) {
+	for (var i = 0; i <100; i++) {
 
 		var myModule = `
 		<div class="module"
@@ -133,7 +133,7 @@ var stripeColorChange = function(){
 	var percentageY = event.pageY/heightOfBrowser;
 	var blue = 100 + (255 * (percentageY));
 	var green = 0 + (100 * (percentageY));
-	var otherGreen = 150 + (100 * (percentageY));
+	var otherGreen = 0 + (100 * (percentageY));
 
 	console.log('red:', red);
 	console.log('blue:', blue);
