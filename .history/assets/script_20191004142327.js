@@ -146,13 +146,13 @@ var stripeColorChange = function(){
 	var green = 0 + (100 * (Percentage));
 	var otherGreen = 150 + (100 * (Percentage));
 
-	var speedX = Percentage * 60;
+	var speedX = percentageX * 60;
 
 	console.log('red:', red);
 	console.log('blue:', blue);
 
 	for (k=0; k<object.length; k++){
-		object[k].style.backgroundColor = `rgb(${red},${green},0)`;
+		object[k].style.backgroundColor = `rgb(${red},0,0)`;
 		otherObject[k].style.backgroundColor = `rgb(0,${green},${blue})`;
 	}
 	

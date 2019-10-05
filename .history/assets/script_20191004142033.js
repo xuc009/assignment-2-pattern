@@ -93,10 +93,8 @@ var delayedEvenstripe = function(j){
 
 	}else {
 		var changingG = 100+(j*10);
-		var changingZ = Math.round(-j);
+		var changingZ = Math.round(j);
 	}
-	console.log(changingZ)
-
 	var changingY = j*100;
 	var horizontalstripe_delayed = `
 		<div class="horizontalstripe_delayed"
@@ -106,6 +104,8 @@ var delayedEvenstripe = function(j){
 		">
 		</div>
 	`;
+
+	console.log(changingZ)
 
 otherWrapper.insertAdjacentHTML('afterend',horizontalstripe_delayed);
 };
@@ -140,19 +140,21 @@ var stripeColorChange = function(){
 	var widthOfBrowser = window.innerWidth;
 	var heightOfBrowser = window.innerHeight;
 
-	var Percentage = (event.pageX + event.pageY)/(widthOfBrowser+heightOfBrowser)
-	var red = 0 + (255 * (Percentage));
-	var blue = 100 + (255 * (Percentage));
-	var green = 0 + (100 * (Percentage));
-	var otherGreen = 150 + (100 * (Percentage));
+	var newPercentage = (event.pageX + event.pageY)/(widthOfBrowser+heightOfBrowser)
+	var percentageX = event.pageX/widthOfBrowser;
+	var red = 0 + (255 * (newPercentage));
+	var percentageY = event.pageY/heightOfBrowser;
+	var blue = 100 + (255 * (newPercentage));
+	var green = 0 + (100 * (newPercentage));
+	var otherGreen = 150 + (100 * (percentageY));
 
-	var speedX = Percentage * 60;
+	var speedX = percentageX * 60;
 
 	console.log('red:', red);
 	console.log('blue:', blue);
 
 	for (k=0; k<object.length; k++){
-		object[k].style.backgroundColor = `rgb(${red},${green},0)`;
+		object[k].style.backgroundColor = `rgb(${red},0,0)`;
 		otherObject[k].style.backgroundColor = `rgb(0,${green},${blue})`;
 	}
 	

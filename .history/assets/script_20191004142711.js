@@ -152,7 +152,7 @@ var stripeColorChange = function(){
 	console.log('blue:', blue);
 
 	for (k=0; k<object.length; k++){
-		object[k].style.backgroundColor = `rgb(${red},${green},0)`;
+		object[k].style.backgroundColor = `rgb(${red},${otherGreen},0)`;
 		otherObject[k].style.backgroundColor = `rgb(0,${green},${blue})`;
 	}
 	

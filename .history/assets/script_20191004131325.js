@@ -85,27 +85,22 @@ var delayedEvenstripe = function(j){
 	var changingR = 0;
 	var changingG = 0;
 	var changingB = 0;
-	var changingZ = 0;
 
-	if((j%2)==0){
+	if(j<=10){
 		var changingR = 255-(j*20);
-		var changingZ = Math.round(j * .5)
-
 	}else {
-		var changingG = 100+(j*10);
-		var changingZ = Math.round(-j);
+		var changingG = 10+(j*10);
 	}
-	console.log(changingZ)
 
 	var changingY = j*100;
 	var horizontalstripe_delayed = `
 		<div class="horizontalstripe_delayed"
 		style="background-color:rgb(${changingR},${changingG},${changingB});
 		top:${changingY}px;
-		z-index: ${changingZ};
 		">
 		</div>
 	`;
+
 
 otherWrapper.insertAdjacentHTML('afterend',horizontalstripe_delayed);
 };
@@ -140,27 +135,30 @@ var stripeColorChange = function(){
 	var widthOfBrowser = window.innerWidth;
 	var heightOfBrowser = window.innerHeight;
 
-	var Percentage = (event.pageX + event.pageY)/(widthOfBrowser+heightOfBrowser)
-	var red = 0 + (255 * (Percentage));
-	var blue = 100 + (255 * (Percentage));
-	var green = 0 + (100 * (Percentage));
-	var otherGreen = 150 + (100 * (Percentage));
+	var percentageX = event.pageX/widthOfBrowser;
+	var red = 0 + (255 * (percentageX));
+	var percentageY = event.pageY/heightOfBrowser;
+	var blue = 100 + (255 * (percentageY));
+	var green = 0 + (100 * (percentageY));
+	var otherGreen = 150 + (100 * (percentageY));
 
-	var speedX = Percentage * 60;
+	var speedX = percentageX * 60;
 
 	console.log('red:', red);
 	console.log('blue:', blue);
 
 	for (k=0; k<object.length; k++){
-		object[k].style.backgroundColor = `rgb(${red},${green},0)`;
+		object[k].style.backgroundColor = `rgb(${red},0,0)`;
 		otherObject[k].style.backgroundColor = `rgb(0,${green},${blue})`;
 	}
 	
 	for (k=0; k<lastObject.length; k++){
 		lastObject[k].style.backgroundColor = `rgb(255,${otherGreen},0)`;
-		}
+		// lastObject[k].style.animationDuration = `${speedX}s`;
+	}
+
 	
-	// console.log(object.style.backgroundColor);
+	console.log(object.style.backgroundColor);
 
 
 }
@@ -171,7 +169,6 @@ window.addEventListener("mousemove", stripeColorChange)
 var scrolling = function(){
 	var body = document.querySelector("body");
 	var backgroundStripe = document.getElementsByClassName("horizontalstripe");
-	var otherObject = document.getElementsByClassName("horizontalstripe_odd");
 	var lastObject = document.getElementsByClassName("module_child");
 	var module = document.getElementsByClassName("module");
 
@@ -184,7 +181,7 @@ var scrolling = function(){
 	console.log(percentageScrolled)
 	var color = Math.round(percentageScrolled * 200);
 
-	var speed = Math.round((percentageScrolled * 5) * 50);
+	var speed = (percentageScrolled * 5) * 50;
 
 	if(percentageScrolled >= .95 ){
 		window.scrollTo(0,0)
@@ -194,12 +191,14 @@ var scrolling = function(){
 		backgroundStripe[c].style.backgroundColor = `rgb(${color},${color},${color})`;
 	}
 
-	for (c=0; c<lastObject.length; c++){
+	for (c=0; c<backgroundStripe.length; c++){
+		backgroundStripe[c].style.backgroundColor = `rgb(${color},${color},${color})`;
 		lastObject[c].style.animationDuration = `${speed}s`;
-		// otherObject[c].style.animationDuration = `${speed}s`;
-		}
+		lastObject[c].style.animationDuration = `${speed}s`;
+		
+	}
 
-	console.log('animation speed module_child:', speed)
+	console.log('animation speed module_child:', speedX)
 
 }
 

@@ -56,7 +56,6 @@ html{
 	animation: horizontalmove_left 50s infinite linear, rotation 30s infinite linear;
 	border-radius: 50%;
 	animation-timing-function: cubic-bezier(.43,.84,.61,.14);
-	z-index: 100;
 }
 
 .module{
