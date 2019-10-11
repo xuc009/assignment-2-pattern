@@ -141,17 +141,15 @@ var stripeColorChange = function(){
 	var heightOfBrowser = window.innerHeight;
 
 	var Percentage = (event.pageX + event.pageY)/(widthOfBrowser+heightOfBrowser)
-	var red = Math.round(100 + (255 * (Percentage)));
-	var blue = Math.round(100 + (255 * (Percentage)));
-	var green = Math.round(0 + (200 * (Percentage)));
-	var otherGreen = Math.round(150 + (100 * (Percentage)));
+	var red = 0 + (255 * (Percentage));
+	var blue = 100 + (255 * (Percentage));
+	var green = 0 + (100 * (Percentage));
+	var otherGreen = 150 + (100 * (Percentage));
 
 	var speedX = Percentage * 60;
 
 	console.log('red:', red);
 	console.log('blue:', blue);
-	console.log('green:', green);
-
 
 	for (k=0; k<object.length; k++){
 		object[k].style.backgroundColor = `rgb(${red},${green},0)`;
@@ -174,10 +172,8 @@ window.addEventListener("mousemove", stripeColorChange)
 var scrolling = function(){
 	var body = document.querySelector("body");
 	var backgroundStripe = document.getElementsByClassName("horizontalstripe");
-	var object = document.getElementsByClassName("horizontalstripe_even");
 	var otherObject = document.getElementsByClassName("horizontalstripe_odd");
 	var lastObject = document.getElementsByClassName("module_child");
-	var object = document.getElementsByClassName("horizontalstripe_odd");
 	var module = document.getElementsByClassName("module");
 
 
@@ -201,26 +197,15 @@ var scrolling = function(){
 
 	for (c=0; c<lastObject.length; c++){
 		if (percentageScrolled <= .33){
-			speed = 60;
+			speed = 10;
 		}else if(percentageScrolled <= .66){
 			speed = 30;
 		}else{
-			speed = 10;
+			
 		} 
 		lastObject[c].style.animationDuration = `${speed}s`;
+		// otherObject[c].style.animationDuration = `${speed}s`;
 		}
-
-	for (c=0; c<object.length; c++){
-		if (percentageScrolled <= .33){
-			speed = 50;
-		}else if(percentageScrolled <= .66){
-			speed = 20;
-		}else{
-			speed = 12;
-		} 
-		object[c].style.animationDuration = `${speed}s`;
-		otherObject[c].style.animationDuration = `${speed}s`;
-		}	
 
 	console.log('animation speed module_child:', speed)
 

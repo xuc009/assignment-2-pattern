@@ -212,14 +212,13 @@ var scrolling = function(){
 
 	for (c=0; c<object.length; c++){
 		if (percentageScrolled <= .33){
-			speed = 50;
+			speed = 60;
 		}else if(percentageScrolled <= .66){
-			speed = 20;
+			speed = 30;
 		}else{
-			speed = 12;
+			speed = 10;
 		} 
-		object[c].style.animationDuration = `${speed}s`;
-		otherObject[c].style.animationDuration = `${speed}s`;
+		lastObject[c].style.animationDuration = `${speed}s`;
 		}	
 
 	console.log('animation speed module_child:', speed)

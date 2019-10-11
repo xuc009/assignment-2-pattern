@@ -174,10 +174,7 @@ window.addEventListener("mousemove", stripeColorChange)
 var scrolling = function(){
 	var body = document.querySelector("body");
 	var backgroundStripe = document.getElementsByClassName("horizontalstripe");
-	var object = document.getElementsByClassName("horizontalstripe_even");
-	var otherObject = document.getElementsByClassName("horizontalstripe_odd");
 	var lastObject = document.getElementsByClassName("module_child");
-	var object = document.getElementsByClassName("horizontalstripe_odd");
 	var module = document.getElementsByClassName("module");
 
 
@@ -198,6 +195,7 @@ var scrolling = function(){
 	for (c=0; c<backgroundStripe.length; c++){
 		backgroundStripe[c].style.backgroundColor = `rgb(${color},${color},${color})`;
 	}
+	var otherObject = document.getElementsByClassName("horizontalstripe_odd");
 
 	for (c=0; c<lastObject.length; c++){
 		if (percentageScrolled <= .33){
@@ -208,19 +206,8 @@ var scrolling = function(){
 			speed = 10;
 		} 
 		lastObject[c].style.animationDuration = `${speed}s`;
-		}
-
-	for (c=0; c<object.length; c++){
-		if (percentageScrolled <= .33){
-			speed = 50;
-		}else if(percentageScrolled <= .66){
-			speed = 20;
-		}else{
-			speed = 12;
-		} 
-		object[c].style.animationDuration = `${speed}s`;
 		otherObject[c].style.animationDuration = `${speed}s`;
-		}	
+		}
 
 	console.log('animation speed module_child:', speed)
 

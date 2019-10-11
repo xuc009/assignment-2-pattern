@@ -220,6 +220,7 @@ var scrolling = function(){
 		} 
 		object[c].style.animationDuration = `${speed}s`;
 		otherObject[c].style.animationDuration = `${speed}s`;
+
 		}	
 
 	console.log('animation speed module_child:', speed)
